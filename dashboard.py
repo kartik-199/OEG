@@ -3,8 +3,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
-from sklearn.ensemble import RandomForestRegressor
-
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from predict_price import predict_price
 st.title("Welcome to the Pricing Dashboard")
 
 uploaded_file = st.file_uploader("Upload your historical sales data CSV", type=["csv"])
@@ -41,54 +41,12 @@ if uploaded_file:
 
     st.header("ML Modeling for Optimal Pricing")
 
-    st.subheader("Linear Regression Model")
-
+    st.subheader("Random Forests Ensemble Model")
     rf = RandomForestRegressor(n_estimators=100, random_state=42)
-    rf.fit(X, y)
-
-
-    price_range = np.linspace(current_price * 0.9, current_price * 1.1, 25)
-    predicted_units = rf.predict(price_range.reshape(-1, 1))
-    predicted_units = np.maximum(predicted_units, 0)
-    profits = (price_range - cost) * predicted_units
-    max_profit_idx = np.argmax(profits)
-    optimal_price = price_range[max_profit_idx]
-    optimal_profit = profits[max_profit_idx]
-
-    st.write(f"Optimal price based on RF model: ${optimal_price:.2f}")
-    st.write(f"Estimated profit at optimal price: ${optimal_profit:.2f}")
-
-    fig, ax = plt.subplots()
-    ax.plot(price_range, profits, label="Estimated Profit")
-    ax.axvline(optimal_price, color='red', linestyle='--', label=f"Optimal Price: ${optimal_price:.2f}")
-    ax.set_xlabel("Price")
-    ax.set_ylabel("Estimated Profit")
-    ax.set_title("Profit vs Price Curve (Random Forest Regressor)")
-    ax.legend()
-    st.pyplot(fig)
+    predict_price(X, y, rf, current_price, cost)
 
     st.subheader("Log Linear Regression Model")
-
-    predicted_units = model.predict(np.log(price_range.reshape(-1, 1)))
-    predicted_units = np.exp(predicted_units) 
-    predicted_units = np.maximum(predicted_units, 0)
-
-    profits = (price_range - cost) * predicted_units
-    max_profit_idx = np.argmax(profits)
-    optimal_price = price_range[max_profit_idx]
-    optimal_profit = profits[max_profit_idx]
-
-    st.write(f"Optimal price based on LR model: ${optimal_price:.2f}")
-    st.write(f"Estimated profit at optimal price: ${optimal_profit:.2f}")
-
-    fig, ax = plt.subplots()
-    ax.plot(price_range, profits, label="Estimated Profit")
-    ax.axvline(optimal_price, color='red', linestyle='--', label=f"Optimal Price: ${optimal_price:.2f}")
-    ax.set_xlabel("Price")
-    ax.set_ylabel("Estimated Profit")
-    ax.set_title("Profit vs Price Curve (Linear Regression Model)")
-    ax.legend()
-    st.pyplot(fig)
+    predict_price(np.log(X), np.log(y), LinearRegression(), current_price, cost)
 
 
 else:
