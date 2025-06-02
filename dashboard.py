@@ -46,7 +46,7 @@ if uploaded_file:
     predict_price(X, y, rf, current_price, cost)
 
     st.subheader("Log Linear Regression Model")
-    predict_price(np.log(X), np.log(y), LinearRegression(), current_price, cost)
+    predict_price(X, y, LinearRegression(), current_price, cost)
 
 
 else:
