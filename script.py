@@ -55,7 +55,7 @@ image_center_page = st.Page(
 if st.session_state.logged_in:
     pg = st.navigation(
         {
-            "Data Hub": [dashboard_page, sample_data_page],
+            "Data Hub": [dashboard_page, sample_data_page, image_center_page],
             "Logout": [logout_page]
         }
     )
