@@ -49,8 +49,8 @@ if uploaded_file is not None:
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
     image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
 
-    st.image(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), caption='Original Image', use_column_width=True)
+    st.image(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), caption='Original Image', use_container_width=True)
 
     centered_image = center(image)
 
-    st.image(cv2.cvtColor(centered_image, cv2.COLOR_BGR2RGB), caption='Centered Image', use_column_width=True)
+    st.image(cv2.cvtColor(centered_image, cv2.COLOR_BGR2RGB), caption='Centered Image', use_container_width=True)
