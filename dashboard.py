@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from xgboost import XGBRegressor
 from predict_price import predict_price
 st.title("Welcome to the Pricing Dashboard")
 
@@ -51,6 +52,10 @@ if uploaded_file:
     st.subheader("Gradient Boosting Model")
     gb = GradientBoostingRegressor(n_estimators=100, random_state=42)
     predict_price(X, y, gb, current_price, cost)
+
+    st.subheader("XGBoost Regressor")
+    xgb = XGBRegressor(n_estimators=100, random_state=42)
+    predict_price(X, y, xgb, current_price, cost)
 
 else:
     st.info("Please upload a CSV file to proceed.")
