@@ -5,7 +5,7 @@ sample_csv_path = 'SampleData/data.csv'
 
 df = pd.read_csv(sample_csv_path)
 st.title("Sample Data Generation")
-st.write("This page generates synthetic sales data for two SKUs over a period of time.")
+st.write("This page generates synthetic sales data for an SKU over a period of time.")
 
 st.dataframe(df.head(10))
 
