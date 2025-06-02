@@ -1,4 +1,4 @@
-SKU, Date, Units_Sold, Price, Cost, Inventory, Competitor_Price
+SKU,Date,Units_Sold,Price,Cost,Inventory,Competitor_Price
 SKU0001,2024-01-01,47,122.21,98.11,90,120.09
 SKU0001,2024-01-02,49,112.7,98.11,90,124.24
 SKU0001,2024-01-03,48,122.58,98.11,90,115.62
