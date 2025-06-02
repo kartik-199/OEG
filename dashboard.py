@@ -34,8 +34,10 @@ if uploaded_file:
     st.write(f"Estimated price elasticity for SKU {sku_filter}: {elasticity:.2f}")
     cost = st.number_input("Enter cost for SKU", value=float(sku_data['Cost'].iloc[0]))
 
-    current_price = avg_price
-    st.write(f"Current average price: ${current_price:.2f}")
+    sku_data = sku_data.sort_values(by='Date', ascending=False)
+    most_recent_price = sku_data['Price'].iloc[0]
+    current_price = most_recent_price
+    st.write(f"Most recent price: ${current_price:.2f}")
 
     st.header("ML Modeling for Optimal Pricing")
 
