@@ -1,6 +1,6 @@
-streamlit
+streamlit==1.45.1
 pandas
 numpy
 scikit-learn
 matplotlib
-cv2
+opencv-python
