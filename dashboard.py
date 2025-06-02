@@ -42,18 +42,18 @@ if uploaded_file:
 
     st.header("ML Modeling for Optimal Pricing")
 
-    st.subheader("Random Forests Ensemble Model")
+    st.subheader("Random Forests Regressor Model")
     rf = RandomForestRegressor(n_estimators=100, random_state=42)
     predict_price(X, y, rf, current_price, cost)
 
     st.subheader("Linear Regression Model")
     predict_price(X, y, LinearRegression(), current_price, cost)
 
-    st.subheader("Gradient Boosting Model")
+    st.subheader("Gradient Boosting Regressor Model")
     gb = GradientBoostingRegressor(n_estimators=100, random_state=42)
     predict_price(X, y, gb, current_price, cost)
 
-    st.subheader("XGBoost Regressor")
+    st.subheader("XGBoost Regressor Model")
     xgb = XGBRegressor(n_estimators=100, random_state=42)
     predict_price(X, y, xgb, current_price, cost)
 
