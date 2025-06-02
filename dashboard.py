@@ -37,7 +37,10 @@ if uploaded_file:
     current_price = avg_price
     st.write(f"Current average price: ${current_price:.2f}")
 
-    st.subheader("ML Modeling for Optimal Pricing")
+    st.header("ML Modeling for Optimal Pricing")
+
+    st.subheader("Linear Regression Model")
+
     rf = RandomForestRegressor(n_estimators=100, random_state=42)
     rf.fit(X, y)
 
