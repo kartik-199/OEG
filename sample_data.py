@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-sample_csv_path = 'data.csv'
+sample_csv_path = 'SampleData/data.csv'
 
 df = pd.read_csv(sample_csv_path)
 st.title("Sample Data Generation")

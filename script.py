@@ -46,16 +46,17 @@ sample_data_page = st.Page(
     icon="📈"
     )
 
-image_center_page = st.Page(
+center_image_page = st.Page(
     "image_center.py", 
-    title="Image Center",
+    title="Center Images",
     icon="🖼️"
 )   
 
 if st.session_state.logged_in:
     pg = st.navigation(
         {
-            "Data Hub": [dashboard_page, sample_data_page, image_center_page],
+            "Data Hub": [dashboard_page, sample_data_page],
+            "Content Tools": [center_image_page],
             "Logout": [logout_page]
         }
     )
