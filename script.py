@@ -46,6 +46,12 @@ sample_data_page = st.Page(
     icon="📈"
     )
 
+image_center_page = st.Page(
+    "image_center.py", 
+    title="Image Center",
+    icon="🖼️"
+)   
+
 if st.session_state.logged_in:
     pg = st.navigation(
         {
