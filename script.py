@@ -35,7 +35,7 @@ logout_page = st.Page(logout, title = "Logout", icon="🚪")
 
 dashboard_page = st.Page(
    "dashboard.py", 
-   title="Dashboard",
+   title="Pricing Dashboard",
    icon="📊",
    default=True
 )
